@@ -66,6 +66,8 @@ function cheakWin() {
     }
   }
 }
+// ... (Oldingi kodingiz)
+
 function cheakDraw() {
   if (!isGameOver) {
     let isDraw = true;
@@ -75,10 +77,22 @@ function cheakDraw() {
     if (isDraw) {
       isGameOver = true;
       document.querySelector("#results").innerHTML = "Draw";
+
+      // Rasm elementini yaratish va unga src atributini o'rnatish
+      let imgElement = document.createElement("img");
+      imgElement.src =
+        "https://i.pinimg.com/564x/eb/aa/7b/ebaa7b1dedaf9d99469804aa59153f78.jpg";
+      imgElement.style.width = "200px";
+      imgElement.style.height = "170px";
+      imgElement.style.boxShadow = " 2px 2px 5px rgba(0, 0, 0, 0.3)";
+      imgElement.style.borderRadius = "10px";
+      document.querySelector("#results").appendChild(imgElement);
+
       document.querySelector("#play-again").style.display = "inline";
     }
   }
 }
+
 document.querySelector("#play-again").addEventListener("click", () => {
   isGameOver = false;
   turn = "X";
@@ -92,5 +106,3 @@ document.querySelector("#play-again").addEventListener("click", () => {
   });
 });
 
-let button = (document.getElementById = "play-again");
-button.style.display = "flex";
