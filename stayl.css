@@ -10,7 +10,7 @@ body{
  width: 100vw;
  text-align: center;
  padding-top:50px ;
-    background-color: #33c144aa;
+    background-color: #1977beaa;
 }
 .align{
     display: flex;
@@ -75,9 +75,20 @@ border: 2px solid #000;
     border-radius: 5rem;
     cursor: pointer;
     display: none;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 #play-again:hover{
     padding: 10px 40px;
     background-color: aqua;
     color: #000;
+    display: flex;
+}
+#footerdiv{
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+#imgDiv{
+    display: flex;
+    justify-content: center;
 }

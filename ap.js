@@ -1,7 +1,11 @@
+// let img = document.getElementById("img");
+// const imgSrc =
+//   "https://image.shutterstock.com/image-vector/win-sign-colour-confetti-vector-260nw-322012643.jpg";
+// img.src = imgSrc;
+
 let box = document.querySelectorAll(".box");
 let turn = "X";
 let isGameOver = false;
-
 box.forEach((e) => {
   e.innerHTML = "";
   e.addEventListener("click", () => {
@@ -22,7 +26,6 @@ function chengeTrun() {
     document.querySelector(".bg").style.left = "0px";
   }
 }
-
 function cheakWin() {
   let winConditions = [
     [0, 1, 2],
@@ -42,7 +45,19 @@ function cheakWin() {
 
     if (v0 != "" && v0 === v1 && v0 === v2) {
       isGameOver = true;
-      document.querySelector("#results").innerHTML = turn + " win";
+      let resultElement = document.querySelector("#results");
+      resultElement.innerHTML = turn + " win";
+      resultElement.style.display = "grid";
+      resultElement.style.justifyContent = "center";
+
+      // Rasm elementini yaratish va unga src atributini o'rnatish
+      let imgElement = document.createElement("img");
+      imgElement.src =
+        "https://image.shutterstock.com/image-vector/win-sign-colour-confetti-vector-260nw-322012643.jpg";
+
+      // Rasmni #results ga qo'shish
+      resultElement.appendChild(imgElement).style.width = "200px";
+      imgElement.style.borderRadius = "10px";
       document.querySelector("#play-again").style.display = "inline";
       for (j = 0; j < 3; j++) {
         box[winConditions[i][j]].style.backgroundColor = "#08D9D6";
@@ -51,7 +66,6 @@ function cheakWin() {
     }
   }
 }
-
 function cheakDraw() {
   if (!isGameOver) {
     let isDraw = true;
@@ -65,7 +79,6 @@ function cheakDraw() {
     }
   }
 }
-
 document.querySelector("#play-again").addEventListener("click", () => {
   isGameOver = false;
   turn = "X";
@@ -78,3 +91,6 @@ document.querySelector("#play-again").addEventListener("click", () => {
     e.style.color = "#fff";
   });
 });
+
+let button = (document.getElementById = "play-again");
+button.style.display = "flex";
